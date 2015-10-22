@@ -33,9 +33,9 @@ void findMinAndMax(T arr[], size_t n, T & min, T & max){
 				}
 				else{
 					if (arr[i+1] > max)
-						max = arr[i];
+						max = arr[i+1];
 					if (arr[i] < min)
-						min = arr[i + 1];
+						min = arr[i];
 				}
 			}
 		}
