@@ -1,10 +1,10 @@
 /*
 	srand((unsigned int) time(nullptr));
 
-	size_t size = 5;
+	int size = 5;
 	int * A = new int[size];
 
-	for (size_t i = 0; i < size; i++)
+	for (int i = 0; i < size; i++)
 	{
 		A[i] = rand() % 100;
 	}
@@ -13,12 +13,12 @@
 */
 
 template <typename T>
-size_t partition(T * A, size_t p, size_t r)
+int partition(T * A, int p, int r)
 {
 	T x = A[r];
 	int i = (int)p - 1;
 
-	for (size_t j = p; j < r; j++)
+	for (int j = p; j < r; j++)
 	{
 		if (A[j] <= x)
 		{
@@ -32,24 +32,24 @@ size_t partition(T * A, size_t p, size_t r)
 }
 
 template <typename T>
-void quickSort(T * A, size_t p, size_t r)
+void quickSort(T * A, int p, int r)
 {
 	if (p < r)
 	{
-		size_t q = partition(A, p, r);
+		int q = partition(A, p, r);
 
 		quickSort(A, p, q - 1);
 		quickSort(A, q + 1, r);
 	}
 }
 
-int random(size_t p, size_t r)
+int random(int p, int r)
 {
 	return rand() % (r - p + 1) + (p);
 }
 
 template <typename T>
-size_t randomizedPartition(T * A, size_t p, size_t r)
+int randomizedPartition(T * A, int p, int r)
 {
 	swap(A[r], A[random(p, r)]);
 
@@ -57,11 +57,11 @@ size_t randomizedPartition(T * A, size_t p, size_t r)
 }
 
 template <typename T>
-void randomizedQuickSort(T * A, size_t p, size_t r)
+void randomizedQuickSort(T * A, int p, int r)
 {
 	if (p < r) 
 	{
-		size_t q = randomizedPartition(A, p, r);
+		int q = randomizedPartition(A, p, r);
 
 		randomizedQuickSort(A, p, q - 1);
 		randomizedQuickSort(A, q + 1, r);
